@@ -189,6 +189,9 @@ class Message(object):
 
         return self._client.find_user_by_name(self._body['username'])
 
+    def get_user(self):
+        return u'<@{}>'.format(self._get_user_id())
+
     @unicode_compact
     def _gen_at_message(self, text):
         text = u'<@{}>: {}'.format(self._get_user_id(), text)
